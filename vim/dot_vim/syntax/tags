@@ -1,0 +1,85 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+1G	man.vim	/^norm! 1G$/;"	m
+ChooseValue	php.vim	/^function! s:ChooseValue(name, default)$/;"	f
+HiLink	javascript.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
+HiLink	javascript.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
+HiLink	jquery.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
+HiLink	jquery.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
+HiLink	man.vim	/^com! -nargs=+ HiLink hi def link <args>$/;"	c
+HiLink	mankey.vim	/^command! -nargs=+ HiLink hi default link <args>$/;"	c
+HiLink	php.vim	/^      command -nargs=+ HiLink hi link <args>$/;"	c
+HiLink	php.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
+HiLink	smarty.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
+HiLink	smarty.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
+b:current_syntax	css3.vim	/^let b:current_syntax = "css3"$/;"	v
+b:current_syntax	cvsannotate.vim	/^let b:current_syntax="CVSAnnotate"$/;"	v
+b:current_syntax	javascript.vim	/^let b:current_syntax = "javascript"$/;"	v
+b:current_syntax	jquery.vim	/^let b:current_syntax = 'javascript.jquery'$/;"	v
+b:current_syntax	man.vim	/^let b:current_syntax = "man"$/;"	v
+b:current_syntax	mankey.vim	/^let b:current_syntax = "mankey"$/;"	v
+b:current_syntax	manphp.vim	/^let b:current_syntax = "manphp"$/;"	v
+b:current_syntax	php.vim	/^let b:current_syntax = "php"$/;"	v
+b:current_syntax	smarty.vim	/^let b:current_syntax = "smarty"$/;"	v
+b:current_syntax	svkannotate.vim	/^let b:current_syntax="svkAnnotate"$/;"	v
+b:current_syntax	svnannotate.vim	/^let b:current_syntax="svnAnnotate"$/;"	v
+b:javascript_fold	javascript.vim	/^let b:javascript_fold='true'$/;"	v
+did_cvsannotate_syntax_inits	cvsannotate.vim	/^	let did_cvsannotate_syntax_inits = 1$/;"	v
+did_javascript_syn_inits	javascript.vim	/^    let did_javascript_syn_inits = 1$/;"	v
+did_lisp_syntax_inits	jquery.vim	/^    let did_lisp_syntax_inits = 1$/;"	v
+did_php_syn_inits	php.vim	/^    let did_php_syn_inits = 1$/;"	v
+did_smarty_syn_inits	smarty.vim	/^    let did_smarty_syn_inits = 1$/;"	v
+did_svkannotate_syntax_inits	svkannotate.vim	/^	let did_svkannotate_syntax_inits = 1$/;"	v
+did_svnannotate_syntax_inits	svnannotate.vim	/^	let did_svnannotate_syntax_inits = 1$/;"	v
+g:did_info_syntax_inits	info.vim	/^  let g:did_info_syntax_inits = 1$/;"	v
+g:loaded_syntax_info	info.vim	/^let g:loaded_syntax_info= "v1"$/;"	v
+j	manphp.vim	/^  norm! j$/;"	m
+k	manphp.vim	/^  norm! k$/;"	m
+main_syntax	css3.vim	/^  let main_syntax = 'css'$/;"	v
+main_syntax	javascript.vim	/^  let main_syntax = 'javascript'$/;"	v
+main_syntax	php.vim	/^  let main_syntax = 'php'$/;"	v
+main_syntax	smarty.vim	/^  let main_syntax = 'smarty'$/;"	v
+php_sync_method	php.vim	/^    let php_sync_method=-1$/;"	v
+php_sync_method	php.vim	/^    let php_sync_method=php_minlines$/;"	v
+pregPattern_D	php.vim	/^      function! s:pregPattern_D(open, close)$/;"	f
+pregPattern_S	php.vim	/^      function! s:pregPattern_S(open, close)$/;"	f
+s:alt_arrays	php.vim	/^  let s:alt_arrays = (s:strict_blocks ? s:ChooseValue('php_alt_arrays', 1) : 0)$/;"	v
+s:alt_blocks	php.vim	/^  let s:alt_blocks = (s:strict_blocks && s:ChooseValue('php_alt_blocks', 1))$/;"	v
+s:alt_comparisons	php.vim	/^  let s:alt_comparisons = s:ChooseValue('php_alt_comparisons', s:ChooseValue('php_oldStyle', 1))$/;"	v
+s:alt_control_parents	php.vim	/^  let s:alt_control_parents = s:ChooseValue('php_alt_construct_parents', 0)$/;"	v
+s:alt_properties	php.vim	/^  let s:alt_properties = (s:smart_members && s:ChooseValue('php_alt_properties', 0))$/;"	v
+s:alt_refs	php.vim	/^  let s:alt_refs = s:ChooseValue('php_alt_assignByReference', 1)$/;"	v
+s:asp_tags	php.vim	/^  let s:asp_tags = s:ChooseValue('php_asp_tags', 0)$/;"	v
+s:command	php.vim	/^      let s:command = 'syntax match pregClassExcStart_<QUOTE> \/\\[\\^\\]\/ contained display'$/;"	v
+s:command	php.vim	/^      let s:command = 'syntax match pregClassIncStart_<QUOTE> \/\\[\\]\/ contained display'$/;"	v
+s:command	php.vim	/^      let s:command = 'syntax region pregClass<TYPE> start=\/\\ze.\/ matchgroup=pregClassParent end=\/\\]\/'$/;"	v
+s:endEarly	php.vim	/^    let s:endEarly = s:nested_functions ? '' : 'matchgroup=Error end=\/\\%(^\\|\\s\\)function\\>\/'$/;"	v
+s:foldHere	php.vim	/^    let s:foldHere = s:folding ? 'fold' : ''$/;"	v
+s:fold_arrays	php.vim	/^  let s:fold_arrays = (s:folding && s:ChooseValue('php_fold_arrays', 0))$/;"	v
+s:fold_heredoc	php.vim	/^  let s:fold_heredoc = (s:folding && s:ChooseValue('php_fold_heredoc', 0))$/;"	v
+s:fold_manual	php.vim	/^  let s:fold_manual = s:large_file ? 0 : s:ChooseValue('php_fold_manual', s:folding ? 1 : 0)$/;"	v
+s:folding	php.vim	/^  let s:folding = s:large_file ? 0 : s:ChooseValue('php_folding', 0)$/;"	v
+s:is_elflord	php.vim	/^  let s:is_elflord = (exists('g:colors_name') && g:colors_name == 'elflord')$/;"	v
+s:large_file	php.vim	/^  let s:large_file = (s:large_file_limit == 0) ? 0 : (line('$') >= s:large_file_limit)$/;"	v
+s:large_file_limit	php.vim	/^  let s:large_file_limit = s:ChooseValue('php_large_file', 3000)$/;"	v
+s:long_tags	php.vim	/^  let s:long_tags = !s:ChooseValue('php_short_tags', !s:ChooseValue('php_noShortTags', 0))$/;"	v
+s:nested_functions	php.vim	/^  let s:nested_functions = s:ChooseValue('php_nested_functions', 1)$/;"	v
+s:no_empty_construct	php.vim	/^  let s:no_empty_construct = (s:strict_blocks && s:ChooseValue('php_empty_construct_error', 1))$/;"	v
+s:parent_error_close	php.vim	/^  let s:parent_error_close = (s:strict_blocks && s:ChooseValue('php_parent_error_close', 1))$/;"	v
+s:show_baselib	php.vim	/^  let s:show_baselib = s:ChooseValue('php_baselib', 0)$/;"	v
+s:show_html_in_strings	php.vim	/^  let s:show_html_in_strings = s:ChooseValue('php_htmlInStrings', 0)$/;"	v
+s:show_pcre	php.vim	/^  let s:show_pcre = s:large_file ? 0 : s:ChooseValue('php_show_pcre', s:ChooseValue('php_show_preg', 1))$/;"	v
+s:show_quotes	php.vim	/^  let s:show_quotes = s:ChooseValue('php_highlight_quotes', 0)$/;"	v
+s:show_semicolon	php.vim	/^  let s:show_semicolon = s:ChooseValue('php_show_semicolon', 1)$/;"	v
+s:show_semicolon_error	php.vim	/^  let s:show_semicolon_error = (s:show_semicolon && s:ChooseValue('php_show_semicolon_error', 1))$/;"	v
+s:show_sql	php.vim	/^  let s:show_sql = s:ChooseValue('php_sql_query', 0)$/;"	v
+s:smart_members	php.vim	/^  let s:smart_members = s:large_file ? 0 : s:ChooseValue('php_smart_members', 0)$/;"	v
+s:smart_semicolon	php.vim	/^  let s:smart_semicolon = s:large_file ? 0 : (s:show_semicolon && s:ChooseValue('php_smart_semicolon', 1))$/;"	v
+s:special_functions	php.vim	/^  let s:special_functions = s:ChooseValue('php_special_functions', 1)$/;"	v
+s:special_vars	php.vim	/^  let s:special_vars = s:ChooseValue('php_special_vars', s:ChooseValue('php_special_variables', s:ChooseValue('php_oldStyle', 1)))$/;"	v
+s:strict_blocks	php.vim	/^  let s:strict_blocks = s:large_file ? 0 : s:ChooseValue('php_strict_blocks', 1)$/;"	v
+s:sync	php.vim	/^  let s:sync = s:ChooseValue('php_sync_method', -1)$/;"	v

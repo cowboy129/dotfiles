@@ -1,0 +1,202 @@
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let eq = ''
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      let cmd = '""' . $VIMRUNTIME . '\diff"'
+      let eq = '"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+
+"Locate the cursor at the last edited location when open a file
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm'\"")|else|exe "norm $"|endif|endif
+
+"auto fold
+set foldmethod=marker
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+
+syntax on 
+set syn=auto 
+set showmatch 
+set smartcase
+filetype on 
+filetype plugin on 
+filetype indent on 
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType js setlocal shiftwidth=2 tabstop=2
+au BufRead,BufNewFile *.css set ft=css syntax=css3
+au BufRead,BufNewFile *.tpl set filetype=smarty
+set tabstop=4 
+
+au Filetype smarty exec('set dictionary=D:/Vim/vimfiles/syntax/smarty.vim') 
+au Filetype smarty set complete+=k 
+
+set softtabstop=4 
+set shiftwidth=4 
+set expandtab
+set list
+set nu
+"set foldmethod=indent
+set fileencodings=utf-8,gb2312,gbk,gb18030
+set termencoding=utf-8
+colorscheme desert
+
+"与Windows共享剪贴板
+set clipboard+=unnamed
+
+set helplang=cn
+"禁止生成临时文件
+set nobackup
+
+"au BufRead,BufNewFile *.js set ft=javascript.jquery
+
+" 打开javascript折叠
+let b:javascript_fold=1
+" 打开javascript对dom、html和css的支持
+let javascript_enable_domhtmlcss=1
+
+let php_sql_query=1
+let php_htmlInStrings=1
+let php_noShortTags=1
+"let php_folding=1
+
+function! UPDATE_JS_TAGS()
+  let _f_ = expand("%:p")
+  let _cmd_ = '"ctags -R ."'
+  let _resp = system(_cmd_)
+  unlet _cmd_
+  unlet _f_
+  unlet _resp
+endfunction
+function! UPDATE_PHP_TAGS()
+  let _f_ = expand("%:p")
+  let _cmd_ = 'ctags --langmap="php:+.inc" -h ".php.inc" -R --totals=yes --tag-relative=yes --PHP-kinds=+cfv .'
+  let _resp = system(_cmd_)
+  unlet _cmd_
+  unlet _f_
+  unlet _resp
+endfunction
+autocmd BufWrite *.js call UPDATE_JS_TAGS()
+autocmd BufWrite *.php call UPDATE_PHP_TAGS()
+
+set tags=./tags,./../tags,./../../tags,./../../../tags,tags
+
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+"nnoremap <c-s-f> 1G=G
+"inoremap <c-s-f> <ESC>1G=Gi
+
+let g:spinner_nextitem_key = ',n'
+let g:spinner_previousitem_key = ',p'
+let g:spinner_switchmode_key = ',s'
+let g:spinner_displaymode_key = ',d'
+
+nnoremap <C-x><C-h> :TlistHighlightTag<CR>
+nnoremap <C-x><C-t> :TlistToggle<CR>
+inoremap <C-x><C-t> <ESC>:TlistToggle<CR>i
+let Tlist_File_Fold_Auto_Close=1
+let Tlist_Show_One_File= 1 
+let Tlist_Exit_OnlyWindow= 1 
+let tlist_javascript_settings='javascript;f:Function;c:Class;m:Method;p:Property'
+
+let NERDTreeWinPos=1
+nnoremap <C-x><C-f> :NERDTreeToggle<CR>
+inoremap <C-x><C-f> <ESC>:NERDTreeToggle<CR>i
+
+" statusline
+set statusline=%<%f\ %h%m\ %r[%{&fileformat},%{&fileencoding}]%y%=%-14.(%l,%c%V%)\ --%P--
+" 2-alaways show statusline; 0-alaways hide statusline; 1-show statusline when has multi-buffers
+set laststatus=2 
+
+set completeopt=longest,menu
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+
+"==========================
+" BufExplorer
+"==========================
+let g:bufExplorerDefaultHelp=0 " Do not show default help.
+let g:bufExplorerDetailedHelp=0 " Do not show detailed help.
+let g:bufExplorerShowRelativePath=0 " Show absolute paths.
+let g:bufExplorerShowDirectories=1 " Show directories.
+let g:bufExplorerSortBy='mru' " Sort by most recently used.
+let g:bufExplorerSplitRight=0 " Split left.
+let g:bufExplorerSplitVertical=1 " Split vertically.
+let g:bufExplorerSplitVertSize = 30 " Split width
+let g:bufExplorerUseCurrentWindow=1 " Open in new window.
+
+"===========================
+" winManager setting
+"===========================
+let g:winManagerWindowLayout = 'BufExplorer,FileExplorer|TagList'
+"let g:winManagerWindowLayout = 'FileExplorer,TagsExplorer|BufExplorer' " What windows should it
+let g:winManagerWidth = 30
+let g:defaultExplorer = 0
+nmap <C-W><C-F> :FirstExplorerWindow<CR>
+nmap <C-W><C-B> :BottomExplorerWindow<CR>
+"nmap <silent> <leader>wm :WMToggle<CR>
+nnoremap <silent> <F8> :WMToggle<CR>
+
+"===========================
+" neocomplcache
+"===========================
+let g:NeoComplCache_EnableAtStartup = 1 
+let g:NeoComplCache_DisableAutoComplete = 1
+
+nnoremap <C-x><C-q> :q<CR>
+inoremap <C-x><C-q> <ESC>:q<CR>i
+
+nnoremap <C-x><C-s> :w<CR>
+inoremap <C-x><C-s> <ESC>:w<CR>i
+
+inoremap , , <ESC>a
+
+"nnoremap <silent> <C-x><C-e> :s/^\(.*\)$/\1;/<CR>
+nnoremap <silent> <leader>; A;<ESC>
+
+let g:closetag_html_style=1
+
+so D:\Vim\vimfiles\plugin\supertab.vim
+let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
+
+let Grep_Path = 'D:\GnuWin32\bin\grep.exe'
+let Fgrep_Path = 'D:\GnuWin32\bin\fgrep.exe'
+let Egrep_Path  = 'D:\GnuWin32\bin\egrep.exe'
+let Grep_Find_Path = 'D:\GnuWin32\bin\find.exe'
+let Grep_Xargs_Path = 'D:\GnuWin32\bin\xargs.exe'
+
+let g:debuggerTimeout = 60
+let g:debuggerPort = 12300
+
+nnoremap <silent> <C-x><C-y> :YRShow<cr>
+inoremap <silent> <C-x><C-y> <ESC>:YRShow<cr>
+
+let g:sparkupExecuteMapping = '<C-x><C-s>'
